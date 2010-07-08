@@ -1,0 +1,98 @@
+#!/usr/bin/env ruby
+require 'mathn'
+
+def gcd(a, b)
+  while b != 0
+    t = b
+    b = a % b
+    a = t
+  end
+  a
+end
+
+def coprime(a, b)
+  gcd(a, b) == 1
+end
+
+def totient(a)
+  tot = 1
+  even = (a % 2) == 0
+  2.upto(a) do |n|
+    unless (even and (n%2) == 0)
+      if coprime(a, n)
+        tot += 1
+      end
+    end
+  end
+  tot
+end
+
+def fprime(n)
+  p = Prime.new
+  sqrt = n**0.5
+  f = 0
+  while f < sqrt
+    f = p.next
+    if (n % f) == 0
+      return [f, n/f]
+    end
+  end
+end
+
+n = ARGV[0].to_i
+e = ARGV[1].to_i
+c = File.open(ARGV[2]).read.chomp
+conv = ARGV[3] == 'yes'
+doloop = ARGV[4] == 'yes'
+d = -1
+
+p, q = fprime(n)
+
+tot = (p - 1)*(q - 1)
+
+1.upto(n) do |i|
+  if (((e*i)-1) % tot) == 0
+    d = i
+    break
+  end
+end
+
+puts "N: #{n}"
+puts "E: #{e}"
+puts "C: #{c}"
+puts "Converting: #{conv}"
+puts "DoLoop: #{doloop}"
+puts "P, Q = #{p}, #{q}"
+puts "Totient: #{tot}"
+puts "D: #{d}"
+
+words = c.split(' ')
+result = [1, 1]
+firstloop = true
+loop do
+  unless firstloop
+    n, e = result.map {|i| i.to_i}
+  end
+
+  puts "N: #{n}"
+  puts "E: #{e}"
+
+  result = []
+  words.each do |w|
+    ans = (w.to_i**d)%n
+    if conv
+      result << ans.chr
+    else
+      result << ans.to_s
+    end
+  end
+  if conv
+    puts result.join('')
+  else
+    puts result.join(' ')
+  end
+  firstloop = false
+  unless ((result[0].to_s.size != 2) and (result[1].to_s.size != 2) and doloop)
+    break
+  end
+end

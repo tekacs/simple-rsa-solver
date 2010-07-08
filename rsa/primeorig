@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+require 'benchmark'
+require 'mathn'
+
+p = Prime.new
+puts Benchmark.measure {
+  4000.times do
+    a = p.next
+  end
+}
