@@ -1,7 +1,9 @@
-require 'pp'
+#!/usr/bin/env ruby
 
-str = 'bhjuh nb uls vulru sl yx h onuunbw nuaxusnlu yjs swx rlkg nb onuunbw swxkx hkx dhuzdlkxbhjuhbnuonumhugswhuxmbxrwxkxluxbhjuhcxkxaxkzswkxxlkoljkcxlcmxonuubvulrrwhshbhjuhnbxmbxrwxkxnozljbxxhbnfubhjuhluswxgllkzljphuulsyxbjkxswhsswxkxnbhbhjuhyxwnugswxgllk'
-key = 'fg|pc|cp|zy|dm|rw|xe|ha|un|bs|lo|ju|ni|st|of|ni|un|wh|vk|yb|av|ml|gd|kr'.split('|')
+# Simple substitution cipher helper.
+
+str = ARGV[0]
+key = 'ab|bc|et|ce|te|ra'.split('|')
 map = Hash.new
 key.each do |pair|
 	a, b = pair.split('')

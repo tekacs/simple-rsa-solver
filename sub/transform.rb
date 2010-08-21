@@ -1,6 +1,8 @@
-require 'pp'
+#!/usr/bin/env ruby
 
-str = 'bhjuhnbulsvulruslyxhonuunbwnuaxusnluyjsswxrlkgnbonuunbwswxkxhkxdhuzdlkubhjuhbnuonumhugswhuxmbxrwxkxluxbhjuhcxkxaxkzswkxxlkoljkcxlcmxonuubvulrrwhshbhjuhnbxmbxrwxkxnozljbxxhbnfubhjuhluswxgllkzljphuulsyxbjkxswhsswxkxnbhbhjuhyxwnugswxgllk'
+# Simple affine cipher helper.
+
+str = ARGV[0]
 map = Hash.new
 a = 4
 b = 7
