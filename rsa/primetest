@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-require 'rsa'
+require 'ntheory'
 
 puts "true === #{Prime.prime? 3}"
 puts "true === #{Prime.prime? 5992830235524142758386850633773258681119}"

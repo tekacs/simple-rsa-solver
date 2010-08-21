@@ -1,0 +1,16 @@
+This is a collection of very simple number-theory related tools
+and a very simple RSA encryption and cracking tool.
+
+'ntheory.rb' - this contains various simple utility algorithms.
+- GCD, EGCD, Totient, Coprimality.
+- Modular exponentiation (and a simple equivalent which handles
+  this similarly to how it is done by hand.)
+- Simple prime factorisation.
+- Miller-Rabin primality test.
+
+'rsaenc.rb' - this contains a simple RSA encryption tool.
+'rsaenc-cmd' - this can be run to actually encrypt things.
+
+'rsasolve.rb' - this is a simple solver for RSA
+	      	(uses the tools above to decrypt messages with
+		their public key).
